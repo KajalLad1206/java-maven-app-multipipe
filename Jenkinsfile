@@ -23,16 +23,19 @@ pipeline{
         }
         stage('image-build'){           
             steps{
-                
-               echo "Building image..!" 
-               buildImage('kajallad126/java-maven-app:1.5') 
-               dockerLogin()
+                script{
+                    echo "Building image..!" 
+                    buildImage('kajallad126/java-maven-app:1.5') 
+                    dockerLogin()
+                }
             }
         }
         stage('image-push'){           
             steps{
-               echo "Pushing image to dockerhub..!" 
-               dockerImagePush('kajallad126/java-maven-app:1.5') 
+                script{
+                    echo "Pushing image to dockerhub..!" 
+                    dockerImagePush('kajallad126/java-maven-app:1.5') 
+                }
             }
         }
         
