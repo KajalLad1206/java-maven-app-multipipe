@@ -3,6 +3,9 @@
 @Library('jenkins-shared-library')_
 pipeline{
     agent any
+    tools{
+        maven 'Maven-3.9'
+    }
 
     stages{
         stage('test'){
