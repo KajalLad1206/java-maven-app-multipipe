@@ -21,15 +21,18 @@ pipeline{
                buildJar() 
             }
         }
-        stage('build-image'){
-            // when{
-            //     expression{
-            //         BRANCH_NAME == 'main'
-            //     }
-            // }
+        stage('image-build'){           
             steps{
-               echo "Building Image..!" 
+                
+               echo "Building image..!" 
                buildImage('kajallad126/java-maven-app:1.5') 
+               dockerLogin()
+            }
+        }
+        stage('image-push'){           
+            steps{
+               echo "Pushing image to dockerhub..!" 
+               dockerImagePush('kajallad126/java-maven-app:1.5') 
             }
         }
         
