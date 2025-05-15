@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
-def gv
+
+@Library('jenkins-shared-library')_
 
 pipeline{
     agent any
@@ -8,26 +9,38 @@ pipeline{
         stage('test'){
             steps{
                echo "Testing the apllication...!"    
-               echo "executing pipeline for $BRANCH_NAME"     
+                   
             }
         }
-        stage('build'){
-            when{
-                expression{
-                    BRANCH_NAME == 'main'
-                }
-            }
+        stage('build-jar'){
+            // when{
+            //     expression{
+            //         BRANCH_NAME == 'main'
+            //     }
+            // }
             steps{
-               echo "Building the apllication..!"  
+               echo "Building the apllication..!" 
+               buildJar() 
+            }
+        }
+        stage('build-jar'){
+            // when{
+            //     expression{
+            //         BRANCH_NAME == 'main'
+            //     }
+            // }
+            steps{
+               echo "Building the apllication..!" 
+               buildImage() 
             }
         }
         
         stage('deploy'){
-            when{
-                expression{
-                    BRANCH_NAME == 'main'
-                }
-            }
+            // when{
+            //     expression{
+            //         BRANCH_NAME == 'main'
+            //     }
+            // }
             steps{
                  echo "Deploying the apllication..!"  
             }
