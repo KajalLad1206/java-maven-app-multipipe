@@ -25,7 +25,7 @@ pipeline{
             steps{
                 script{
                     echo "Building image..!" 
-                    buildImage('kajallad126/java-maven-app:1.5') 
+                    dockerImageBuild('kajallad126/java-maven-app:1.5') 
                     dockerLogin()
                 }
             }
