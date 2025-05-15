@@ -15,14 +15,10 @@ pipeline{
             }
         }
         stage('build-jar'){
-            // when{
-            //     expression{
-            //         BRANCH_NAME == 'main'
-            //     }
-            // }
+           
             steps{
                echo "Building the jar..!" 
-               buildJar() 
+               buildJar('kajallad126/java-maven-app:1.5') 
             }
         }
         stage('build-image'){
