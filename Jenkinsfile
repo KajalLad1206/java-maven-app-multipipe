@@ -19,18 +19,18 @@ pipeline{
             //     }
             // }
             steps{
-               echo "Building the apllication..!" 
+               echo "Building the jar..!" 
                buildJar() 
             }
         }
-        stage('build-jar'){
+        stage('build-image'){
             // when{
             //     expression{
             //         BRANCH_NAME == 'main'
             //     }
             // }
             steps{
-               echo "Building the apllication..!" 
+               echo "Building Image..!" 
                buildImage() 
             }
         }
