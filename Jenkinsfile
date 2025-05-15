@@ -18,7 +18,7 @@ pipeline{
            
             steps{
                echo "Building the jar..!" 
-               buildJar('kajallad126/java-maven-app:1.5') 
+               buildJar() 
             }
         }
         stage('build-image'){
@@ -29,7 +29,7 @@ pipeline{
             // }
             steps{
                echo "Building Image..!" 
-               buildImage() 
+               buildImage('kajallad126/java-maven-app:1.5') 
             }
         }
         
