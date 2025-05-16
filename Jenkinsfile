@@ -5,7 +5,7 @@ pipeline{
     agent any
 
     stages{
-        stage('test'){
+        stage('test-app'){
             steps{
                echo "Testing the apllication...!"    
                echo "executing pipeline for $BRANCH_NAME"     
