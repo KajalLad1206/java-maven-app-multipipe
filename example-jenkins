@@ -24,7 +24,7 @@ pipeline {
                 }
             }
         }
-        stage('test') {
+        stage('test-app') {
             //this will used for condtion or expression  when branch is main only that time this stage execute
             // when{
             //     expression{
