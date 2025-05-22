@@ -1,10 +1,14 @@
 #!/usr/bin/env groovy
 
-//@Library('jenkins-shared-library')_
+@Library('jenkins-shared-library')_
 pipeline{
     agent any
     tools{
         maven 'maven-3.9'
+    }
+    
+    environment{
+        IMAGE_NAME = 'kajallad126/java-maven-app:1.5'
     }
 
     stages{
@@ -17,24 +21,24 @@ pipeline{
            
             steps{
                echo "Building the jar..!" 
-              // buildJar() 
+               buildJar() 
             }
         }
         stage('image-build'){           
             steps{
                 echo "Building image..!" 
-                // script{                    
-                //     dockerImageBuild('kajallad126/java-maven-app:1.5') 
-                //     dockerLogin()
-                // }
+                script{                    
+                    dockerImageBuild(env.IMAGE_NAME) 
+                    dockerLogin()
+                }
             }
         }
         stage('image-push'){           
             steps{
                 echo "Pushing image to dockerhub..!" 
-                // script{                    
-                //     dockerImagePush('kajallad126/java-maven-app:1.5') 
-                // }
+                script{                    
+                    dockerImagePush(env.IMAGE_NAME) 
+                }
             }
         }
         
@@ -48,7 +52,7 @@ pipeline{
                  echo "Deploying the apllication..!" 
                 script{ 
                     sshagent(['app-deploy-server-key']) {
-                        def dockercommand = 'docker run -p 8080:8080 -d kajallad126/java-maven-app:1.5'
+                        def dockercommand = "docker run -p 8080:8080 -d ${env.IMAGE_NAME}"
                         sh "ssh -o StrictHostKeyChecking=no kajal@34.130.221.92 ${dockercommand}"
                         }
                 } 
