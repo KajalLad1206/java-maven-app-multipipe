@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-@Library('jenkins-shared-library')_
+//@Library('jenkins-shared-library')_
 pipeline{
     agent any
     tools{
@@ -10,32 +10,31 @@ pipeline{
     stages{
         stage('test'){
             steps{
-               echo "Testing the apllication...!"    
-                   
+               echo "Testing the apllication...!"  
             }
         }
         stage('build-jar'){
            
             steps{
                echo "Building the jar..!" 
-               buildJar() 
+              // buildJar() 
             }
         }
         stage('image-build'){           
             steps{
-                script{
-                    echo "Building image..!" 
-                    dockerImageBuild('kajallad126/java-maven-app:1.5') 
-                    dockerLogin()
-                }
+                echo "Building image..!" 
+                // script{                    
+                //     dockerImageBuild('kajallad126/java-maven-app:1.5') 
+                //     dockerLogin()
+                // }
             }
         }
         stage('image-push'){           
             steps{
-                script{
-                    echo "Pushing image to dockerhub..!" 
-                    dockerImagePush('kajallad126/java-maven-app:1.5') 
-                }
+                echo "Pushing image to dockerhub..!" 
+                // script{                    
+                //     dockerImagePush('kajallad126/java-maven-app:1.5') 
+                // }
             }
         }
         
@@ -46,7 +45,13 @@ pipeline{
             //     }
             // }
             steps{
-                 echo "Deploying the apllication..!"  
+                 echo "Deploying the apllication..!" 
+                script{ 
+                    sshagent(['app-deploy-server-key']) {
+                        def dockercommand = 'docker run -p 8080:8080 -d kajallad126/java-maven-app:1.5'
+                        sh 'ssh -o StictHostKeyChecking=no kajal@34.130.221.92'
+                        }
+                } 
             }
         }
     }
