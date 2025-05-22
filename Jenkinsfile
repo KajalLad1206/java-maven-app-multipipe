@@ -49,7 +49,7 @@ pipeline{
                 script{ 
                     sshagent(['app-deploy-server-key']) {
                         def dockercommand = 'docker run -p 8080:8080 -d kajallad126/java-maven-app:1.5'
-                        sh 'ssh -o StictHostKeyChecking=no kajal@34.130.221.92'
+                        sh 'ssh -o StrictHostKeyChecking=no kajal@34.130.221.92'
                         }
                 } 
             }
