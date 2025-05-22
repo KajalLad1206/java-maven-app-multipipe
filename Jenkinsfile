@@ -12,22 +12,22 @@ pipeline{
             }
         }
         stage('build'){
-            when{
-                expression{
-                    BRANCH_NAME == 'main'
-                }
-            }
+            // when{
+            //     expression{
+            //         BRANCH_NAME == 'main'
+            //     }
+            // }
             steps{
                echo "Building the apllication..!"  
             }
         }
         
         stage('deploy'){
-            when{
-                expression{
-                    BRANCH_NAME == 'main'
-                }
-            }
+            // when{
+            //     expression{
+            //         BRANCH_NAME == 'main'
+            //     }
+            // }
             steps{
                  echo "Deploying the apllication..!"  
             }
