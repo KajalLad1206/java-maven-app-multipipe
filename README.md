@@ -1,4 +1,4 @@
-﻿# java-maven-app
+
 # java-maven-app-multipipe
 
 Set up Maven Project: Create a Maven-based Java project with pom.xml and necessary Java files.
@@ -12,3 +12,4 @@ Build Docker Image: Use docker build -t java-maven-app . to create the Docker im
 Run Docker Container: Run the container with docker run -d -p 8080:8080 java-maven-app.
 
 Access the App: Open http://localhost:8080/myproject to view the deployed app.
+
