@@ -1,6 +1,14 @@
 #!/usr/bin/env groovy
 
-@Library('jenkins-shared-library')_
+@Library('jenkins-shared-library')_ 
+
+// If you want to load a shared library from Git without global config, you can define it inline using library() with a map of options.
+// library identifier: 'my-shared-library@main',
+//                             retriever: modernSCM([
+//                                 $class: 'GitSCMSource',
+//                                 remote: 'https://github.com/KajalLad1206/jenkins-shared-library.git',
+//                                 credentialsId: 'github-credential'                                
+//                             ])
 pipeline{
     agent any
     tools{
