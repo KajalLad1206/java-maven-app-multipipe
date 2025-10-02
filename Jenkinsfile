@@ -64,9 +64,9 @@ pipeline{
             steps{
                 echo "Deploying the apllication..!" 
                 script{ 
-                    sshagent(['app-deploy-server-key']) {
+                    sshagent(['aws-ec2-server-key']) {
                         def dockercommand = "docker run -p 8080:8080 -d ${env.IMAGE_NAME}"
-                        sh "ssh -o StrictHostKeyChecking=no kajal@34.130.221.92 ${dockercommand}"
+                        sh "ssh -o StrictHostKeyChecking=no ubuntu@35.182.166.224 ${dockercommand}"
                         }
                 } 
             }
