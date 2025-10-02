@@ -62,7 +62,7 @@ pipeline{
             //     }
             // }
             steps{
-                echo "Deploying the apllication..!" 
+                echo "Deploying the apllication on aws server..!" 
                 script{ 
                     sshagent(['aws-ec2-server-key']) {
                         def dockercommand = "docker run -p 3080:3080 -d ${env.IMAGE_NAME}"
