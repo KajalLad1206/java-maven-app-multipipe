@@ -2,6 +2,9 @@
 
 @Library('jenkins-shared-library')_ 
 
+
+//@Library('jenkins-shared-library')
+//def gv 
 // If you want to load a shared library from Git without global config, you can define it inline using library() with a map of options.
 // library identifier: 'my-shared-library@main',
 //                             retriever: modernSCM([
@@ -9,6 +12,8 @@
 //                                 remote: 'https://github.com/KajalLad1206/jenkins-shared-library.git',
 //                                 credentialsId: 'github-credential'                                
 //                             ])
+
+
 pipeline{
     agent any
     tools{
@@ -57,7 +62,7 @@ pipeline{
             //     }
             // }
             steps{
-                 echo "Deploying the apllication..!" 
+                echo "Deploying the apllication..!" 
                 script{ 
                     sshagent(['app-deploy-server-key']) {
                         def dockercommand = "docker run -p 8080:8080 -d ${env.IMAGE_NAME}"
