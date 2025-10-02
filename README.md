@@ -11,7 +11,7 @@ AWS, Jenkins, Docker, Linux, Git, Java, Maven, Docker Hub
 - Create ssh key credentials for EC2 server on Jenkins
 - Extend the previous CI pipeline with deploy step to ssh into the remote EC2 instance and deploy newly built image from Jenkins server
 - Configure security group on EC2 Instance to allow access to our web application
----
+
 ### Configure and EC2 Instance and Install Docker
 1. follow the setup in the first two sections from the previous demo above
 
@@ -53,6 +53,7 @@ Jenkinsfile : https://github.com/KajalLad1206/java-maven-app-multipipe/blob/app-
     - in your browser :public_ip_of_server/project name
     ex. http://35.182.166.224:3080/myproject
 
+---
 ### Demo Project:
 Configure Webhook to trigger CI Pipeline automatically on every change
 
@@ -96,4 +97,5 @@ Jenkins, GitHub, Git, Docker, Java, Maven
     - for multibranch pipeline configuration, the setup will be the same as the above for github
 ---
 ---
+
 
