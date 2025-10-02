@@ -18,7 +18,7 @@ pipeline{
                 }
             }
             steps{
-               echo "Building the apllication..!"  
+               echo "Building the image..!"  
             }
         }
         
