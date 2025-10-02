@@ -18,7 +18,7 @@ pipeline{
                 }
             }
             steps{
-               echo "Building the image..!"  
+               echo "Building the application in multipipe...!"  
             }
         }
         
