@@ -4,7 +4,7 @@
 
 
 //@Library('jenkins-shared-library')
-//def gv 
+//def gv    
 // If you want to load a shared library from Git without global config, you can define it inline using library() with a map of options.
 // library identifier: 'my-shared-library@main',
 //                             retriever: modernSCM([
