@@ -1,7 +1,7 @@
 # Build Automation & CI/CD with Jenkins
 
 ### Demo Project:
-CD - Deploy Application from Jenkins Pipeline to EC2 Instance (automatically with docker)
+CD - Deploy Application from Jenkins Pipeline to EC2 Instance
 
 ### Technologies Used:
 AWS, Jenkins, Docker, Linux, Git, Java, Maven, Docker Hub
@@ -98,6 +98,7 @@ Jenkins, GitHub, Git, Docker, Java, Maven
     - for multibranch pipeline configuration, the setup will be the same as the above for github
 ---
 ---
+
 
 
 
