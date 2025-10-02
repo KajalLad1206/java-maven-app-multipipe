@@ -48,7 +48,8 @@ stage('deploy') {
     }
 }
 ```
-Jenkinsfile : https://github.com/KajalLad1206/java-maven-app-multipipe/blob/app-deploy/Jenkinsfile
+- Jenkinsfile : https://github.com/KajalLad1206/java-maven-app-multipipe/blob/app-deploy/Jenkinsfile
+- 
 5. change in code,commit and git push it will trigger in github and deploy stage execute 
     - in your browser :public_ip_of_server/project name
     ex. http://35.182.166.224:3080/myproject
@@ -97,6 +98,7 @@ Jenkins, GitHub, Git, Docker, Java, Maven
     - for multibranch pipeline configuration, the setup will be the same as the above for github
 ---
 ---
+
 
 
 
