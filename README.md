@@ -62,7 +62,7 @@ Jenkins, GitHub, Git, Docker, Java, Maven
 
 ### Project Objectives:
 - Configure Jenkins to trigger the CI pipeline, whenever a change is pushed to GitHub
----
+  
 ### Configure Jenkins to Automatically Trigger the CI Pipeline
 -  if using GitHub
     - in the Configure settings of your Pipeline job, select 'hook trigger for GITScm Polling' in the 'Build Triggers' section
@@ -97,5 +97,6 @@ Jenkins, GitHub, Git, Docker, Java, Maven
     - for multibranch pipeline configuration, the setup will be the same as the above for github
 ---
 ---
+
 
 
