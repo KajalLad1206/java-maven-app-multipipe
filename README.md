@@ -56,7 +56,7 @@ stage('deploy') {
 
 ---
 ### Demo Project:
-Configure Webhook to trigger CI Pipeline automatically on every change
+Configure Webhook to trigger CI Pipeline automatically on git push
 
 ### Technologies Used:
 Jenkins, GitHub, Git, Docker, Java, Maven
@@ -98,6 +98,7 @@ Jenkins, GitHub, Git, Docker, Java, Maven
     - for multibranch pipeline configuration, the setup will be the same as the above for github
 ---
 ---
+
 
 
 
