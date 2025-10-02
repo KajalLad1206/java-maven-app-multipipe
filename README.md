@@ -53,6 +53,7 @@ Jenkinsfile : https://github.com/KajalLad1206/java-maven-app-multipipe/blob/app-
     - in your browser :public_ip_of_server/project name
     ex. http://35.182.166.224:3080/myproject
 
+---
 ### Demo Project:
 Configure Webhook to trigger CI Pipeline automatically on every change
 
@@ -61,7 +62,7 @@ Jenkins, GitHub, Git, Docker, Java, Maven
 
 ### Project Objectives:
 - Configure Jenkins to trigger the CI pipeline, whenever a change is pushed to GitHub
----
+
 ### Configure Jenkins to Automatically Trigger the CI Pipeline
 -  if using GitHub
     - in the Configure settings of your Pipeline job, select 'hook trigger for GITScm Polling' in the 'Build Triggers' section
@@ -96,4 +97,5 @@ Jenkins, GitHub, Git, Docker, Java, Maven
     - for multibranch pipeline configuration, the setup will be the same as the above for github
 ---
 ---
+
 
