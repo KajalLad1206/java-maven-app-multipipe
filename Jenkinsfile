@@ -1,17 +1,33 @@
 #!/usr/bin/env groovy
 
-@Library('jenkins-shared-library')_
+@Library('jenkins-shared-library')_ 
+
+
+//@Library('jenkins-shared-library')
+//def gv    
+// If you want to load a shared library from Git without global config, you can define it inline using library() with a map of options.
+// library identifier: 'my-shared-library@main',
+//                             retriever: modernSCM([
+//                                 $class: 'GitSCMSource',
+//                                 remote: 'https://github.com/KajalLad1206/jenkins-shared-library.git',
+//                                 credentialsId: 'github-credential'                                
+//                             ])
+
+
 pipeline{
     agent any
     tools{
         maven 'maven-3.9'
     }
+    
+    environment{
+        IMAGE_NAME = 'kajallad126/java-maven-app:1.5'
+    }
 
     stages{
         stage('test'){
             steps{
-               echo "Testing the apllication...!"    
-                   
+               echo "Testing the apllication...!"  
             }
         }
         stage('build-jar'){
@@ -23,18 +39,18 @@ pipeline{
         }
         stage('image-build'){           
             steps{
-                script{
-                    echo "Building image..!" 
-                    dockerImageBuild('kajallad126/java-maven-app:1.5') 
+                echo "Building image..!" 
+                script{                    
+                    dockerImageBuild(env.IMAGE_NAME) 
                     dockerLogin()
                 }
             }
         }
         stage('image-push'){           
             steps{
-                script{
-                    echo "Pushing image to dockerhub..!" 
-                    dockerImagePush('kajallad126/java-maven-app:1.5') 
+                echo "Pushing image to dockerhub..!" 
+                script{                    
+                    dockerImagePush(env.IMAGE_NAME) 
                 }
             }
         }
@@ -46,7 +62,13 @@ pipeline{
             //     }
             // }
             steps{
-                 echo "Deploying the apllication..!"  
+                echo "Deploying the project on aws server..!" 
+                script{ 
+                    sshagent(['aws-ec2-server-key']) {
+                        def dockercommand = "docker run -p 3080:8080 -d ${env.IMAGE_NAME}"
+                        sh "ssh -o StrictHostKeyChecking=no ubuntu@35.182.166.224 ${dockercommand}"
+                        }
+                } 
             }
         }
     }
